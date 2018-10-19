@@ -1,13 +1,9 @@
 version: "2"
 
 services:
-  app:
-    image: golang:latest
-    volumes:
-      - .:/go/src/go-with-compose
-    working_dir: /go/src/go-with-compose
-    port: 
+  mobile_api:
+    container_name: mobile_api
+    build: .
+    ports: 
       - 5001:5000
-    command: >
-     go build main.go 
-     && ./main
+
