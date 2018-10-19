@@ -6,4 +6,8 @@ services:
     volumes:
       - .:/go/src/go-with-compose
     working_dir: /go/src/go-with-compose
-    command: go run main.go
+    port: 
+      - 5001:5000
+    command: >
+     go build main.go 
+     && ./main
