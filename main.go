@@ -6,6 +6,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/spf13/viper"
+	"github.com/geraldsamosir/MobileApi/Controller"
 )
 
 type Message struct {
@@ -20,11 +22,18 @@ func (m *Message) Test(res http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	fmt.Println("hello this is from  package golang using go mod ")
+	viper.AddConfigPath("configs/.")
+	viper.SetConfigType("json")
+	err := viper.ReadInConfig()
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println("Config file not found...")
+	}
 	var m Message
+	var article Controller.Article
 	r := mux.NewRouter()
-
-	r.HandleFunc("/", m.Test)
-
-	http.ListenAndServe("0.0.0.0:5000", r)
+	r.HandleFunc("/", m.Test).Methods("GET", "POST")
+	r.HandleFunc("/article", article.Get).Methods("GET")
+	fmt.Println("Your api run in port " + viper.GetString("port"))
+	http.ListenAndServe("0.0.0.0:"+viper.GetString("port")+"", r)
 }
