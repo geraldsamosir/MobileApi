@@ -7,11 +7,27 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
+	"github.com/geraldsamosir/MobileApi/Controller"
 )
 
 type Message struct {
 	Mymessage string
 }
+
+// type Article struct {
+// 	Title string
+// 	Body  string
+// 	Tags  []string
+// }
+
+// func (a *Article) Get(res http.ResponseWriter, req *http.Request) {
+// 	a.Title = "hello world"
+// 	a.Body = "this is body"
+// 	a.Tags = append(a.Tags, "ok", "yes", "LOL")
+// 	res.Header().Set("Content-Type", "application/json")
+// 	res.WriteHeader(200)
+// 	json.NewEncoder(res).Encode(a)
+// }
 
 func (m *Message) Test(res http.ResponseWriter, req *http.Request) {
 	m.Mymessage = "message ok from modules"
@@ -29,8 +45,10 @@ func main() {
 		fmt.Println("Config file not found...")
 	}
 	var m Message
+	var article Controller.Article
 	r := mux.NewRouter()
 	r.HandleFunc("/", m.Test).Methods("GET", "POST")
+	r.HandleFunc("/article", article.Get).Methods("GET")
 	fmt.Println("Your api run in port " + viper.GetString("port"))
 	http.ListenAndServe("0.0.0.0:"+viper.GetString("port")+"", r)
 }
