@@ -1,4 +1,4 @@
-module github.com/geraldsamosir/MobileApi.git
+module github.com/geraldsamosir/MobileApi
 
 require (
 	github.com/gorilla/mux v1.6.2

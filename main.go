@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/geraldsamosir/MobileApi/Controller"
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
-	"github.com/geraldsamosir/MobileApi/Controller"
 )
 
 type Message struct {
