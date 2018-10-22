@@ -14,21 +14,6 @@ type Message struct {
 	Mymessage string
 }
 
-// type Article struct {
-// 	Title string
-// 	Body  string
-// 	Tags  []string
-// }
-
-// func (a *Article) Get(res http.ResponseWriter, req *http.Request) {
-// 	a.Title = "hello world"
-// 	a.Body = "this is body"
-// 	a.Tags = append(a.Tags, "ok", "yes", "LOL")
-// 	res.Header().Set("Content-Type", "application/json")
-// 	res.WriteHeader(200)
-// 	json.NewEncoder(res).Encode(a)
-// }
-
 func (m *Message) Test(res http.ResponseWriter, req *http.Request) {
 	m.Mymessage = "message ok from modules"
 	res.Header().Set("Content-Type", "application/json")
