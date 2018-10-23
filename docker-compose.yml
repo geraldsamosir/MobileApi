@@ -10,3 +10,6 @@ services:
       mobileapi:
         aliases:
           - mobileapi
+networks:
+  mobileapi:
+    driver: bridge
