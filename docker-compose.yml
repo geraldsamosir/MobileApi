@@ -9,7 +9,7 @@ services:
     networks:
       mobileapi:
         aliases:
-          - mobileapi
+        ipv4_address: 10.5.0.6
 networks:
   mobileapi:
     driver: bridge
