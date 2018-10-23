@@ -8,7 +8,6 @@ services:
       - 5001:5000
     networks:
       mobileapi:
-        aliases:
         ipv4_address: 10.5.0.6
 networks:
   mobileapi:
