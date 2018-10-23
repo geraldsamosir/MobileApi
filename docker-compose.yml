@@ -10,6 +10,7 @@ services:
       - mobileapi
     external_links:
       - mobileapi
+    hostname: mobileapi
 
 networks:
   mobileapi:
