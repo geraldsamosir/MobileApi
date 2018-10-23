@@ -1,22 +1,13 @@
 package Article
 
 import (
-	"encoding/json"
-	"net/http"
+	"github.com/gorilla/mux"
 )
 
-type Article struct {
-	Title string
-	Body  string
-	Tags  []string
+type Router struct {
 }
 
-func (a *Article) Get(res http.ResponseWriter, req *http.Request) {
-	a.Title = "hello"
-	a.Body = "this is body"
-	var tags []string
-	a.Tags = append(tags, "ok")
-	res.Header().Set("Content-Type", "application/json")
-	res.WriteHeader(200)
-	json.NewEncoder(res).Encode(a)
+func (routes *Router) AddSignHandler(r *mux.Router) {
+	var articleService ArticleService
+	r.HandleFunc("/article", articleService.Get).Methods("GET")
 }

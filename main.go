@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/geraldsamosir/Domain/Article"
+	"github.com/geraldsamosir/MobileApi/Domain/Article"
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
 )
@@ -30,10 +30,11 @@ func main() {
 		fmt.Println("Config file not found...")
 	}
 	var m Message
-	var article Controller.Article
+	var article Article.Router
 	r := mux.NewRouter()
 	r.HandleFunc("/", m.Test).Methods("GET", "POST")
-	r.HandleFunc("/article", article.Get).Methods("GET")
+
+	article.AddSignHandler(r)
 	fmt.Println("Your api run in port " + viper.GetString("port"))
 	http.ListenAndServe("0.0.0.0:"+viper.GetString("port")+"", r)
 }
