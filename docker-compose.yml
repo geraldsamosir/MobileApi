@@ -8,10 +8,8 @@ services:
       - 5001:5000
     networks:
       - mobileapi
-    external_links:
-      - mobileapi
-    hostname: mobileapi
 
 networks:
   mobileapi:
-    driver: bridge
+    aliases:
+      -mobileapi
