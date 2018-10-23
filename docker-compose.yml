@@ -8,6 +8,8 @@ services:
       - 5001:5000
     networks:
       - mobileapi
+    external_links:
+      - mobileapi
 
 networks:
   mobileapi:
