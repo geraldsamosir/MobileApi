@@ -6,4 +6,9 @@ services:
     build: .
     ports: 
       - 5001:5000
+    networks:
+      - mobileapi
 
+networks:
+ mobileapi:
+    driver: bridge
