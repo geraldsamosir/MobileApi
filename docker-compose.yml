@@ -12,4 +12,4 @@ services:
           - mobileapi
 networks:
   mobileapi:
-    driver: host
+    ipv4_address: 10.5.0.6
