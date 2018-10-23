@@ -1,4 +1,4 @@
-package Controller
+package Article
 
 import (
 	"encoding/json"

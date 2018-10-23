@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/geraldsamosir/MobileApi/Controller"
+	"github.com/geraldsamosir/Domain/Article"
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
 )
