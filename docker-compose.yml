@@ -12,4 +12,4 @@ services:
           - mobileapi
 networks:
   mobileapi:
-    driver: bridge
+    driver: host
