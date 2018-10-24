@@ -4,16 +4,12 @@ services:
   mobile_api:
     container_name: mobile_api
     build: .
-    ports: 
-      - 5001:5000
     networks:
-      mobileapi:
-        ipv4_address: 10.5.0.6
+      - kong-net
+
+
 networks:
-  mobileapi:
-    driver: bridge
-    ipam:
-     config:
-       - subnet: 10.5.0.0/16
-         gateway: 10.5.0.1
+  kong-net:
+    external:
+      name: kong-konga-postgre_kong-net
     
